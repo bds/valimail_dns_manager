@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.database_url = "db/production.sqlite3"
 
   # Code is not reloaded between requests.
   config.cache_classes = true
