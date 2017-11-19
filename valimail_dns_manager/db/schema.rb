@@ -11,6 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171116034005) do
+
+  create_table "records", force: :cascade do |t|
+    t.text     "name",        null: false
+    t.integer  "ttl",         null: false
+    t.text     "record_type"
+    t.text     "record_data", null: false
+    t.integer  "zone_id",     null: false
+    t.datetime "updated_at"
+  end
+
+  add_index "records", ["id", "zone_id"], name: "sqlite_autoindex_records_1", unique: true
+
+  create_table "zones", force: :cascade do |t|
+    t.text     "name",       null: false
+    t.datetime "updated_at"
+  end
+
+  add_index "zones", ["name"], name: "sqlite_autoindex_zones_1", unique: true
 
 end
